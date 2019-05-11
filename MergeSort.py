@@ -29,21 +29,8 @@ def merge_sort(data, start, end):
             data[data_index] = right[right_index]
             right_index +=1 
             data_index += 1
-        print('merged ' + str(data))
 
-    # return mid
-
-
-# data_right = data[:4]
-# data_left = data[4:]
-
-# print(data)
-# data_right[0] = 10000
-# print(data)
 print('unsorted data ' + str(data))
 merge_sort(data, 0 , len(data))
 print(data)
-# mid = (0 + len(data))// 2
 
-# print(data[:mid])
-# print(data[mid:])

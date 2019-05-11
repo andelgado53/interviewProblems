@@ -9,11 +9,6 @@ def quick_sort(data, start, end):
         quick_sort(data, start, pivot-1)
         quick_sort(data, pivot+1, end)
 
-
-
-
-    
-
 def get_pivot(data, start, end):
     done = False
     left = start
@@ -37,7 +32,6 @@ def get_pivot(data, start, end):
 
 def test():
     data = [5, 3, 1, 6, 2, 4, 9, 8, 7]
-    
     for x in range(1000):
         shuffle(data)
         quick_sort(data, 0, len(data) -1)
