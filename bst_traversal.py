@@ -4,6 +4,7 @@ class Node:
         self.left = None
         self.right = None
 
+
 ten = Node(12)
 ten.left = Node(10)
 ten.right = Node(14)
@@ -12,19 +13,19 @@ ten.left.right = Node(11)
 ten.right.left = Node(13)
 ten.right.right = Node(15)
 
+
 def in_order_traverse_rec(node):
-    if node != None:
+    if node is not None:
         in_order_traverse_rec(node.left)
         print(node.value)
         in_order_traverse_rec(node.right)
 
-# in_order_traverse_rec(ten)
 
 def in_order_traverse_non_rec(node):
     stack = []
     current = node
     while True:
-        if current != None:
+        if current is not None:
             stack.append(current)
             current = current.left
         elif len(stack) > 0:
@@ -33,5 +34,6 @@ def in_order_traverse_non_rec(node):
             current = current.right
         else:
             break
+
 
 in_order_traverse_non_rec(ten)
