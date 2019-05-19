@@ -1,5 +1,6 @@
 from pprint import pprint
 
+
 class board:
     def __init__(self, rows, cols):
         self.rows = rows
@@ -78,19 +79,20 @@ class board:
     def is_col_safe(self, row, col):
         r = 0
         col_points = set()
-        while (r < self.rows):
+        while r < self.rows:
             if r != row:
                 col_points.add((r, col))
                 if self.board[r][col] == "Q":
                     return False
                 # self.mark_board_at(r, col, "*")
-            r +=1
+            r += 1
         return True
     
                 
 def place_eight_queens(board, queens):
     out = list()
     place_eight_queens_helper(board, queens, 0, out)
+
 
 def place_eight_queens_helper(board, queen, col, out):
     if queen == 0:
@@ -102,17 +104,10 @@ def place_eight_queens_helper(board, queen, col, out):
     for r in range(board.rows):
         if col < board.cols and board.is_safe_at(r, col):
             board.mark_board_at(r, col)
-            place_eight_queens_helper(board, queen -1, col +1, out)
+            place_eight_queens_helper(board, queen - 1, col + 1, out)
         board.mark_board_at(r, col, "=")
             
-            
 
-
-
-        
-        
-
-
-b = board(8,8)
+b = board(8, 8)
 
 place_eight_queens(b, 8)
