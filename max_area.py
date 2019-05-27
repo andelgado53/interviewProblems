@@ -60,3 +60,5 @@ def test():
 
 test()
 
+print(max_area1([6,5,6,2,4,6,4,1,2,3 ]))
+
