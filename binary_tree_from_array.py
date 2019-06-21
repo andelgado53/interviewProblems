@@ -5,12 +5,14 @@ class Node:
         self.left = None
         self.right = None
 
+
 def traverse_tree(head):
     current = head
     if current is not None:
         traverse_tree(current.left)
         print(current.value)
         traverse_tree(current.right)
+
 
 def convert_list_to_binary_tree(data):
     index = 0
@@ -25,6 +27,7 @@ def convert_list_to_binary_tree(data):
             data_node[index].right = right_child
         index += 1
     return head
+
 
 data = [12, 10, 15, 8, 11, 13, 16]
 h = convert_list_to_binary_tree(data)
