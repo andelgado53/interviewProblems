@@ -17,8 +17,9 @@ ten.right.right = Node(15)
 def in_order_traverse_rec(node):
     if node is not None:
         in_order_traverse_rec(node.left)
-        print(node.value)
+
         in_order_traverse_rec(node.right)
+        print(node.value)
 
 
 def in_order_traverse_non_rec(node):
@@ -36,4 +37,5 @@ def in_order_traverse_non_rec(node):
             break
 
 
-in_order_traverse_non_rec(ten)
+# in_order_traverse_non_rec(ten)
+in_order_traverse_rec(ten)
