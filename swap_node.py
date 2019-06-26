@@ -19,18 +19,11 @@ class ListNode:
 
 def swap_pair(head):
     current = head
-    new_head = head
+    previous = head
     if current and current.next:
-        following = current.next
-        temp = following.next
-        following.next = current
-        new_head = following
-        current.next = temp
-        previous = current
-        current = temp
+        new_head = current.next
     else:
-        return new_head
-
+        return head
     while current is not None and current.next is not None:
         following = current.next
         temp = following.next
@@ -58,9 +51,9 @@ while c1 is not None:
     c1 = c1.next
 
 print("***********")
-new_head = swap_pair(one)
+h = swap_pair(one)
 
-c = new_head
+c = h
 while c is not None:
     print(c.val)
     c = c.next
