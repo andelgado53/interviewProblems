@@ -44,12 +44,9 @@ def find_max(data):
 
 
 def max_binary_tree(nums):
-
     def helper(nums):
-
         if len(nums) == 0:
             return None
-
         max_index = find_max(nums)
         max_val = nums[max_index]
         node = TreeNode(max_val)
