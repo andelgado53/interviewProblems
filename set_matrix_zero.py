@@ -70,12 +70,12 @@ def set_zeros_no_space(matrix):
                 matrix[row][col] = 0
 
     if is_first_col_zero:
-        for col in range(1, COLS):
-            matrix[0][col] = 0
+        for row in range(1, ROWS):
+            matrix[row][0] = 0
 
     if matrix[0][0] == 0:
-        for row in range(ROWS):
-            matrix[row][0] = 0
+        for col in range(COLS):
+            matrix[0][col] = 0
 
     pprint.pprint(matrix)
 
