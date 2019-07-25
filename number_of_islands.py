@@ -40,8 +40,9 @@ def get_neighbors(row, col, grid):
     return neighbors
 
 
-def traverse(neighbors, seen, grid):
+def traverse(neighbors, grid):
     q = []
+    seen = set()
     if len(neighbors) > 0:
         q.append(neighbors[0])
     while len(q) > 0:
@@ -51,6 +52,7 @@ def traverse(neighbors, seen, grid):
             for n in get_neighbors(current[0], current[1], grid):
                 if n not in seen:
                     q.append(n)
+    return seen
 
 def get_number_of_islands(grid):
     row_index = 0
@@ -64,7 +66,8 @@ def get_number_of_islands(grid):
                 if (row_index, col_index) not in seen:
                     cnt += 1
                 neighbors = get_neighbors(row_index, col_index, grid)
-                traverse(neighbors, seen, grid)
+                res = traverse(neighbors, grid)
+                seen.update(res)
             col_index += 1
         row_index += 1
     return cnt
