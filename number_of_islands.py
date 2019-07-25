@@ -40,38 +40,38 @@ def get_neighbors(row, col, grid):
     return neighbors
 
 
-grid = [[1,1,0,0,0], [1, 1, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 1, 1]]
+def traverse(neighbors, seen, grid):
+    q = []
+    if len(neighbors) > 0:
+        q.append(neighbors[0])
+    while len(q) > 0:
+        current = q.pop(0)
+        if current not in seen:
+            seen.add(current)
+            for n in get_neighbors(current[0], current[1], grid):
+                if n not in seen:
+                    q.append(n)
 
 def get_number_of_islands(grid):
     row_index = 0
     col_index = 0
-    islands = []
+    seen = set()
+    cnt = 0
     while row_index < len(grid):
         col_index = 0
         while col_index < len(grid[0]):
             if grid[row_index][col_index] == 1:
-                islands.append((row_index, col_index))
+                if (row_index, col_index) not in seen:
+                    cnt += 1
+                neighbors = get_neighbors(row_index, col_index, grid)
+                traverse(neighbors, seen, grid)
             col_index += 1
         row_index += 1
-    q = []
-    cnt = 0
-    seen = set()
-    for island in islands:
-        if island not in seen:
-            cnt +=1
-            q. append(island)
-            while len(q) > 0:
-                current = q.pop(0)
-                if current not in seen:
-                    seen.add(current)
-                    for n in get_neighbors(current[0], current[1], grid):
-                        if n not in seen:
-                            q.append(n)
-
-    print(cnt)
-    return islands
+    return cnt
 
 grid1 = [[1,1,1,1,0],[1,1,0,1,0], [1,1,0,0,0], [0,0,0,0,0]]
-
 print(get_number_of_islands(grid1))
+g = [[1,1,1],[0,1,0],[1,1,1]]
+print(get_number_of_islands(g))
+grid = [[1,1,0,0,0], [1, 1, 0, 0, 0], [0, 0, 1, 0, 0], [0, 0, 0, 1, 1]]
 print(get_number_of_islands(grid))
