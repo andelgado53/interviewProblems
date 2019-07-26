@@ -14,20 +14,20 @@ def merge_sort(data, start, end):
         while left_index < len(left) and right_index < len(right):
             if left[left_index] < right[right_index]:
                 data[data_index] = left[left_index]
-                left_index +=1
+                left_index += 1
             else:
                 data[data_index] = right[right_index]
-                right_index +=1
-            data_index +=1
+                right_index += 1
+            data_index += 1
         
         while left_index < len(left) and data_index < len(data):
             data[data_index] = left[left_index]
-            left_index +=1
-            data_index +=1
+            left_index += 1
+            data_index += 1
         
         while right_index < len(right) and data_index < len(data):
             data[data_index] = right[right_index]
-            right_index +=1 
+            right_index += 1
             data_index += 1
 
 print('unsorted data ' + str(data))
