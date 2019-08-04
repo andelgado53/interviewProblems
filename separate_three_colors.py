@@ -26,15 +26,11 @@ def dutch_flag_sort(balls):
     b = len(balls) - 1
     while g <= b:
         if balls[g] == 'R':
-            temp = balls[r]
-            balls[r] = balls[g]
-            balls[g] = temp
+            balls[r], balls[g] = balls[g], balls[r]
             r += 1
             g += 1
         elif balls[g] == 'B':
-            temp = balls[b]
-            balls[b] = balls[g]
-            balls[g] = temp
+            balls[b], balls[g] = balls[g], balls[b]
             b -= 1
         else:
             g += 1
