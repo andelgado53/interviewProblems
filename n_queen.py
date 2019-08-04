@@ -34,9 +34,12 @@
 # ]
 
 import pprint
+import time
 
-def can_place(new_pos, postions):
+def can_place(new_pos, postions, placed_cols):
     new_r, new_col = new_pos
+    if new_col in placed_cols:
+        return False
     for r, c in postions:
         if c == new_col or abs(r - new_r) == abs(c - new_col):
             return False
@@ -52,8 +55,9 @@ def print_row(col, cols):
     return s
 
 def find_all_arrangements(n):
+    t1 = time.time()
     solutions = []
-    def helper(n, row, out):
+    def helper(n, row, out, placed_cols):
         if row == n:
             sp = []
             for p in out:
@@ -62,12 +66,15 @@ def find_all_arrangements(n):
             solutions.append(sp)
         else:
             for col in range(n):
-                if can_place((row, col), out):
-                    helper(n , row+1, out + [(row, col)])
-    helper(n, 0, [])
+                if can_place((row, col), out, placed_cols):
+                    placed_cols.add(col)
+                    helper(n , row+1, out + [(row, col)], placed_cols)
+                    placed_cols.remove(col)
+    helper(n, 0, [], set())
+    print(time.time() - t1)
     return solutions
 
 
-s = find_all_arrangements(12)
+s = find_all_arrangements(11)
 print(len(s))
-pprint.pprint(s)
+# pprint.pprint(s)
