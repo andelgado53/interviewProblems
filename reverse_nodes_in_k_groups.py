@@ -34,7 +34,9 @@ def reverse_nodes(start_node, end_node):
         previous = current
         current = temp
         if previous == end_node:
+            # print(start_node.val)
             return previous
+    
     return previous
 
 
@@ -49,11 +51,13 @@ def reverse_in_k(head, k):
         return head
     next = fast.next
     prev = reverse_nodes(slow, fast)
+    print(prev.val)
     c = prev
     while c is not None:
         if c.next is None:
             break
         c = c.next
+    c.next 
     c.next = reverse_in_k(next, k)
     return prev
 
@@ -76,24 +80,25 @@ _0.next = __1
 __1.next = __0
 __0.next = ___0
 
-# [2,3,7,1,0,1,0,7,0]
+# in = [1, 7, 3, 2, 7, 0, 1, 0, 0]
+# out =  [2,3,7,1,0,1,0,7,0]
 h = reverse_in_k(_1, 4)
-while h is not None:
-    print(h.val)
-    h = h.next
+# while h is not None:
+#     print(h.val)
+#     h = h.next
 
-one = ListNode(1)
-two = ListNode(2)
-three = ListNode(3)
-four = ListNode(4)
-five = ListNode(5)
-one.next = two
-two.next = three
-three.next = four
-four.next = five
+# one = ListNode(1)
+# two = ListNode(2)
+# three = ListNode(3)
+# four = ListNode(4)
+# five = ListNode(5)
+# one.next = two
+# two.next = three
+# three.next = four
+# four.next = five
 
-print('*********')
-h = reverse_in_k(one, 4)
-while h is not None:
-    print(h.val)
-    h = h.next
+# print('*********')
+# h = reverse_in_k(one, 4)
+# while h is not None:
+#     print(h.val)
+#     h = h.next
