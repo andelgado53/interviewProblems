@@ -40,4 +40,4 @@ def generate_palindromic_decompositions(s):
 # print(is_pal("ababa"))
 generate_palindromic_decompositions("xxy")
 
-print(is_pal(""))
+print(is_pal())

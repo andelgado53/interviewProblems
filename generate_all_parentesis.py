@@ -6,7 +6,7 @@
 
 def is_well_formed(s):
     stack = []
-    open_p = "("
+    open_p = "("of
     close_p = ")"
     for p in s:
         if p == open_p:
